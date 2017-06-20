@@ -1,8 +1,16 @@
 <h1><%= @cat.name %></h1>
 
-<ul>
-  <li>Birth Date: <%= @cat.birth_date %></li>
-  <li>Sex: <%= @cat.sex %></li>
-  <li>Color: <%= @cat.color %></li>
-  <li>Description: <textarea name="description"><%= @cat.description %></textarea></li>
-</ul>
+<table>
+  <tr>
+    <th>Birth Date</th>
+    <th>Sex</th>
+    <th>Color</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><%= @cat.birth_date %></td>
+    <td><%= @cat.sex %></td>
+    <td><%= @cat.color %></td>
+    <td><%= @cat.description %></td>
+  </tr>
+</table>
