@@ -6,4 +6,12 @@ class CatRentalRequest < ActiveRecord::Base
     primary_key: :id,
     foreign_key: :cat_id,
     class_name: :Cat
+
+  def overlapping_requests
+    requests = CatRentalRequest
+      .select("*")
+      .where(cat_rental_requests: { cat_id: self.cat_id } )
+      .where("end_date > ?", self.end_date)
+      .where.not(id: self.id)
+  end
 end

@@ -20,6 +20,24 @@ class CatsController < ApplicationController
     render :edit
   end
 
+  def update
+    @cat = selected_cat
+    if @cat.update_attributes(cat_params)
+      redirect_to cat_url(@cat)
+    else
+      render edit_cat_url(@post)
+    end
+  end
+
+  def create
+    @cat = Cat.new(cat_params)
+    if @cat.save
+      redirect_to cat_url(@cat)
+    else
+      redirect_to new_cat_url
+    end
+  end
+
 
   private
     def selected_cat
