@@ -24,4 +24,12 @@ class CatRentalRequest < ActiveRecord::Base
       errors[:request] << "can't overlap with approved requests"
     end
   end
+
+  def approve!
+    request = CatRentalRequest.find_by(id: self.id)
+    request.update_attributes(status: "APPROVED")
+
+  end
+
+
 end

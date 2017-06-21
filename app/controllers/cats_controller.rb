@@ -7,6 +7,7 @@ class CatsController < ApplicationController
 
   def show
     @cat = selected_cat
+    @requests = CatRentalRequest.where(cat_id: @cat.id)
     render :show
   end
 
